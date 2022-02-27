@@ -48,7 +48,7 @@ def verify_token(token):
 def get_values():
     try:
         fields, dt_from, dt_to = parse_datetime_request()
-        result = [x for x in fetcher.get_values(fields, dt_from, dt_to)]
+        result = {dt: item for dt, item in fetcher.get_values(fields, dt_from, dt_to)}
         return jsonify(result)
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
@@ -62,7 +62,7 @@ def get_values():
 def get_avg_values():
     try:
         fields, dt_from, dt_to = parse_date_request()
-        result = [x for x in fetcher.get_avg_values(fields, dt_from, dt_to)]
+        result = {dt: item for dt, item in fetcher.get_avg_values(fields, dt_from, dt_to)}
         return jsonify(result)
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
@@ -76,7 +76,7 @@ def get_avg_values():
 def get_sum_values():
     try:
         fields, dt_from, dt_to = parse_date_request()
-        result = [x for x in fetcher.get_sum_values(fields, dt_from, dt_to)]
+        result = {dt: item for dt, item in fetcher.get_sum_values(fields, dt_from, dt_to)}
         return jsonify(result)
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
