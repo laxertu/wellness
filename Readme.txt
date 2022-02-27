@@ -1,5 +1,7 @@
 Instalación
 
+* Instalar las dependencias: pip install -r requirements.txt
+
 * Ejecutar install.py: python3 install.py [ruta al fichero csv]
 Genera la base de datos con SqlLite y importa los datos desde el csv que se pasa por parámetro
 
