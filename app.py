@@ -39,7 +39,7 @@ def verify_token(token):
         session_manager.refresh_session(token)
         return result
     except Exception as e:
-        logging.error(e)
+        logging.critical(e)
         return None
 
 
@@ -53,7 +53,7 @@ def get_values():
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
     except Exception as e:
-        logging.error(e)
+        logging.critical(e)
         return jsonify({'err': "Unknown"}), 500
 
 
@@ -67,7 +67,7 @@ def get_avg_values():
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
     except Exception as e:
-        logging.error(e)
+        logging.critical(e)
         return jsonify({'err': "Unknown"}), 500
 
 
@@ -81,5 +81,5 @@ def get_sum_values():
     except IllegalArgumentException as e:
         return jsonify({'err': str(e)}), 400
     except Exception as e:
-        logging.error(e)
+        logging.critical(e)
         return jsonify({'err': "Unknown"}), 500
